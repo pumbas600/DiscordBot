@@ -16,7 +16,7 @@ I am currently hosting my bot off [repl.it](repl.it). A tutorial on how to do th
 **Note:** Unless you are using an upgraded repl.it account, all your repls will be public. For this reason, do NOT hard code your token into your program. Instead you can try:
 
 ```python
-TOKEN = input("Enter your discord bot token: )
+TOKEN = input('Enter your discord bot token: ')
 ```
 This is the most secure option and is recommended if you don't need to continously restart the bot.
 Alternatively, I designed a less secure option to encrypt your token using an easy to remember password:

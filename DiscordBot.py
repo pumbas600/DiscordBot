@@ -21,15 +21,8 @@ joke_categories = {
 async def on_ready():
     print(f'{bot.user.name} has established connection to Discord!')
 
-
-@bot.event
-async def on_member_join(member):
-    # Send the member who joined a personalised DM
-    # await makes the coroutine (this method) wait until the member.create_dm() has finished.
-    await member.create_dm()
-    await member.dm_channel.send(
-        f'Hi {member.name}, welcome to the Discord server!'
-    )
+    servers = len(bot.guilds)
+    print(f'Joke Bot active in {servers} server' + 's' if servers > 1 else '')
 
 @bot.command(name='categories', help='Responds with the available joke categories')
 async def send_joke_categories(ctx):
@@ -69,7 +62,6 @@ async def on_error(event, *args, **kwargs):
                 f'Error details: {args[0]}\n')
         # Re-raise the error to make it invoke the default error behaviour
         # raise
-
 
 @bot.event
 async def on_command_error(ctx, error):

@@ -21,6 +21,12 @@ async def on_ready():
     servers = len(bot.guilds)
     print(f'Joke Bot active in {servers} server' + ('s' if servers > 1 else ''))
 
+
+@bot.command(name='source', help='Returns the github link to the source code for this bot.')
+async def send_source(ctx):
+    await ctx.send('You can find the source code on github here: https://github.com/pumbas600/DiscordBot')
+
+
 @bot.command(name='categories', help='Responds with the available joke categories')
 async def send_joke_categories(ctx):
     categories = ', '.join(joke_categories)

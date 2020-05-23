@@ -8,10 +8,7 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 PREFIX = '!'
 
 bot = commands.Bot(command_prefix=PREFIX)
-joke_categories = {
-    'random': 'random_joke',
-    'programming': 'jokes/programming/random'
-}
+joke_categories = ['random', 'general', 'programming', 'knock-knock']
 
 
 # on_ready function handles the event when the client
@@ -22,22 +19,25 @@ async def on_ready():
     print(f'{bot.user.name} has established connection to Discord!')
 
     servers = len(bot.guilds)
-    print(f'Joke Bot active in {servers} server' + 's' if servers > 1 else '')
+    print(f'Joke Bot active in {servers} server' + ('s' if servers > 1 else ''))
 
 @bot.command(name='categories', help='Responds with the available joke categories')
 async def send_joke_categories(ctx):
-    categories = ', '.join(joke_categories.keys())
+    categories = ', '.join(joke_categories)
     await ctx.send(f'Available categories: {categories}')
 
 
 @bot.command(name='joke', help='Responds with a random joke')
 async def send_joke(ctx, joke_category='random'):
-    if joke_category.lower() not in joke_categories.keys():
+    if joke_category.lower() not in joke_categories:
         await ctx.send(f'The category, {joke_category}, is not supported. '
                        f'To find all the supported categories, use {PREFIX}categories')
         return
 
-    response = requests.get(f'https://official-joke-api.appspot.com/{joke_categories[joke_category.lower()]}')
+    url = 'https://official-joke-api.appspot.com/'\
+          + ('random_joke' if joke_category == 'random' else f'jokes/{joke_category.lower()}/random')
+
+    response = requests.get(url)
 
     # A status code of 200 indicates the request was a success and contains content.
     if response.status_code == 200:

@@ -1,4 +1,6 @@
 import os
+
+import discord
 import requests
 from dotenv import load_dotenv
 from discord.ext import commands
@@ -8,6 +10,7 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 PREFIX = '!'
 
 bot = commands.Bot(command_prefix=PREFIX)
+
 joke_categories = ['random', 'general', 'programming', 'knock-knock']
 
 
@@ -20,6 +23,9 @@ async def on_ready():
 
     servers = len(bot.guilds)
     print(f'Joke Bot active in {servers} server' + ('s' if servers > 1 else ''))
+
+    # Set the game the bot is playing.
+    await bot.change_presence(activity=discord.Game(PREFIX+'help'))
 
 
 @bot.command(name='source', help='Returns the github link to the source code for this bot.')

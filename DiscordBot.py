@@ -1,5 +1,4 @@
 import os
-
 import discord
 import requests
 from dotenv import load_dotenv
@@ -30,7 +29,8 @@ async def on_ready():
 
 @bot.command(name='source', help='Returns the github link to the source code for this bot.')
 async def send_source(ctx):
-    await ctx.send('You can find the source code on github here: https://github.com/pumbas600/DiscordBot')
+    await ctx.send('You can find the source code, along with resources on making and hosting a discord bot\
+     on github here: https://github.com/pumbas600/DiscordBot')
 
 
 @bot.command(name='categories', help='Responds with the available joke categories')

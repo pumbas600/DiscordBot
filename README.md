@@ -7,7 +7,7 @@ The bot works by requesting a joke from the a Joke API by 15Dkatz, which you can
 
 ### Discord Bots:
 
-Feel free to check out [this](https://realpython.com/how-to-make-a-discord-bot-python/) realpython tutorial for a comprehensive guide to getting started with discord bots in python:
+Feel free to check out [this](https://realpython.com/how-to-make-a-discord-bot-python/) realpython tutorial for a comprehensive guide to getting started with discord bots in python.
 
 ### Free Hosting Options:
 

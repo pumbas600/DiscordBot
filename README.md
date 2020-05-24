@@ -11,7 +11,7 @@ Feel free to check out [this](https://realpython.com/how-to-make-a-discord-bot-p
 
 ### Free Hosting Options:
 
-I am currently hosting my bot off [repl.it](repl.it). A tutorial on how to do this can be found [here](https://repl.it/talk/learn/Hosting-discordpy-bots-with-replit/11008)
+I am currently hosting my bot off [repl.it](repl.it). A tutorial on how to do this can be found [here](https://repl.it/talk/learn/Hosting-discordpy-bots-with-replit/11008).
 
 **Note:** Unless you are using an upgraded repl.it account, all your repls will be public. For this reason, do NOT hard code your token into your program. Instead you can try:
 
